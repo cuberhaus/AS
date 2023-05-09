@@ -13,4 +13,14 @@ public class Calculator {
 		  }
 		  return a / b;
 		 } 
+		 
+		 public double suma(double a, double b) {
+			 return a+b;
+		 }
+		 public double resta(double a, double b) {
+			 if (a <= b) {
+				 throw new ArithmeticException();
+			 }
+			 return a-b;
+		 }
 		}

@@ -43,4 +43,26 @@ public class CalculatorTest {
  public void testDivideByZero() {
   calc.divide(100.5, 0);
  }
+ 
+ @Test
+ public void testResta() {
+	double result = calc.resta(5, 3);
+	assertEquals(2,result, 0);
+ }
+
+ @Test(expected=ArithmeticException.class)
+ public void testRestaNegativa() {
+	calc.resta(3, 5);
+ }
+
+ @Test(expected=ArithmeticException.class)
+ public void testRestaZero() {
+	calc.resta(3, 3);
+ }
+
+ @Test
+ public void testSuma() {
+	double result = calc.suma(3, 5);
+	assertEquals(8,result, 0);
+ }
 }
