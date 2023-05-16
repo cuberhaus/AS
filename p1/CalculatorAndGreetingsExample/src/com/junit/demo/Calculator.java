@@ -23,4 +23,15 @@ public class Calculator {
 			 }
 			 return a-b;
 		 }
+		 public int factorial(int n){
+			if (n < 0) {
+				throw new ArithmeticException();
+			}
+			int result = 1;
+			for (int i = 1; i <= n; i++) {
+	            result = result*i;
+	            System.out.println(i);
+	        }
+			return result;
+		 }
 		}

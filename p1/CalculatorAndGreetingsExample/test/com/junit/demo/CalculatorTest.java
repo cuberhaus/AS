@@ -65,4 +65,21 @@ public class CalculatorTest {
 	double result = calc.suma(3, 5);
 	assertEquals(8,result, 0);
  }
+
+ @Test(expected=ArithmeticException.class)
+ public void testFactorialNegatiu() {
+	calc.factorial(-1);
+ }
+
+ @Test
+ public void testFactorialCasBase() {
+	int fact = calc.factorial(0);
+	assertEquals(1, fact,0);
+ }
+ @Test
+ public void testFactorial() {
+	int fact = calc.factorial(3);
+	assertEquals(6, fact,0);
+ }
+
 }
