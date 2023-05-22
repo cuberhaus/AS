@@ -38,8 +38,13 @@ package junit.com;
 public class PayStationImpl implements PayStation {
   private int insertedSoFar;
   private int timeBought;
+  private RateStrategy ratestrategy;
   
-  public void addPayment( int coinValue ) 
+  public PayStationImpl(RateStrategy strategy) {
+	  ratestrategy = strategy;
+	// TODO Auto-generated constructor stub
+  }
+public void addPayment( int coinValue ) 
           throws IllegalCoinException {
     switch ( coinValue ) {
     case 5: break;
@@ -49,7 +54,7 @@ public class PayStationImpl implements PayStation {
       throw new IllegalCoinException("Invalid coin: "+coinValue);
     }
     insertedSoFar += coinValue;
-    timeBought = insertedSoFar / 5 * 2;
+    timeBought = ratestrategy.calculaTime(insertedSoFar);
   }
   public int readDisplay() {
     return timeBought;
