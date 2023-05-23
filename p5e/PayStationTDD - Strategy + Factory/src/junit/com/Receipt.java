@@ -1,8 +1,10 @@
 package junit.com;
 
-/** Implementation of Receipt.
+/** The receipt returned from a pay station.
+   Responsibilities:
+			
+   1) Know the minutes parking time the receipt represents
 
- 
    This source code is from the book 
      "Flexible, Reliable Software:
        Using Patterns and Agile Development"
@@ -27,14 +29,13 @@ package junit.com;
    limitations under the License.
 
 */
+public interface Receipt {
 
-public class StandardReceipt implements Receipt {
-  private int value;
-  public StandardReceipt(int value) { this.value = value; }
-  public int value() { return value;}
-  public String print() {
-	  String receiptContent = getString();
-	  receiptContent = receiptContent + "----------------------------------";
-	  return receiptContent; }
-
+  /**
+   * Return the number of minutes this receipt is valid for.
+   * @return number of minutes parking time
+  */
+  public int value();
+  public String print();
 }
+

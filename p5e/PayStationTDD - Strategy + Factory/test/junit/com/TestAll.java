@@ -1,7 +1,16 @@
 package junit.com;
 
-/** Implementation of Receipt.
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
+@RunWith ( Suite.class )
+  @Suite.SuiteClasses(
+   { TestPayStation.class,
+     TestLinearRate.class,
+     TestProgressiveRate.class,
+     TestIntegration.class } )
+
+/** Test suite for this package.
  
    This source code is from the book 
      "Flexible, Reliable Software:
@@ -27,14 +36,6 @@ package junit.com;
    limitations under the License.
 
 */
-
-public class StandardReceipt implements Receipt {
-  private int value;
-  public StandardReceipt(int value) { this.value = value; }
-  public int value() { return value;}
-  public String print() {
-	  String receiptContent = getString();
-	  receiptContent = receiptContent + "----------------------------------";
-	  return receiptContent; }
-
+public class TestAll {
+  // Dummy - it is the annotations that tell JUnit what to do...
 }

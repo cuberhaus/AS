@@ -29,7 +29,7 @@ package junit.com;
    limitations under the License.
 
 */
-public interface Receipt {
+public abstract class Receipt {
 
   /**
    * Return the number of minutes this receipt is valid for.
@@ -37,5 +37,14 @@ public interface Receipt {
   */
   public int value();
   public String print();
+  private String getString() {
+    String receiptContent = "----------------------------------";
+    receiptContent = receiptContent + "\n";
+    receiptContent = receiptContent + "-------- PARKING RECEIPT --------";
+    receiptContent = receiptContent + "\n";
+    receiptContent = receiptContent + "         Value " + value + " minutes";
+    receiptContent = receiptContent + "\n";
+    return receiptContent;
+  }
 }
 

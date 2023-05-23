@@ -28,12 +28,12 @@ package junit.com;
 
 */
 
-public class StandardReceipt implements Receipt {
+public class StandardReceipt extends ReceiptImpl {
   private int value;
   public StandardReceipt(int value) { this.value = value; }
   public int value() { return value;}
   public String print() {
-	  String receiptContent = getString();
+	    String receiptContent = additionalPrint();
 	  receiptContent = receiptContent + "----------------------------------";
 	  return receiptContent; }
 

@@ -1,8 +1,7 @@
 package junit.com;
+/** A simple one cent = one minute rate strategy for simplifying
+    unit testing the pay station.
 
-/** Implementation of Receipt.
-
- 
    This source code is from the book 
      "Flexible, Reliable Software:
        Using Patterns and Agile Development"
@@ -27,14 +26,9 @@ package junit.com;
    limitations under the License.
 
 */
-
-public class StandardReceipt implements Receipt {
-  private int value;
-  public StandardReceipt(int value) { this.value = value; }
-  public int value() { return value;}
-  public String print() {
-	  String receiptContent = getString();
-	  receiptContent = receiptContent + "----------------------------------";
-	  return receiptContent; }
-
+public class One2OneRateStrategy implements RateStrategy {
+  public int calculateTime( int amount ) {
+    return amount;
+  }
 }
+
