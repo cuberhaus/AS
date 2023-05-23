@@ -1,5 +1,7 @@
 package junit.com;
 
+import org.junit.runner.manipulation.Ordering;
+
 /** Implementation of the pay station.
 
    Responsibilities:
@@ -39,6 +41,8 @@ public class PayStationImpl implements PayStation {
   private int insertedSoFar;
   private int timeBought;
 
+  private PayStationFactory factory;
+
   /** the strategy for rate calculations */
   private RateStrategy rateStrategy;
   
@@ -46,8 +50,9 @@ public class PayStationImpl implements PayStation {
       rate calculation strategy.
       @param rateStrategy the rate calculation strategy to use
   */
-  public PayStationImpl( RateStrategy rateStrategy ) {
-    this.rateStrategy = rateStrategy;
+  public PayStationImpl(PayStationFactory factory) {
+    this.factory = factory;
+    this.rateStrategy = factory.createRateStrategy();
   }
 
   public void addPayment( int coinValue ) 
@@ -66,7 +71,8 @@ public class PayStationImpl implements PayStation {
     return timeBought;
   }
   public Receipt buy() {
-    Receipt r = new StandardReceipt(timeBought);
+//    Receipt r = new StandardReceipt(timeBought);
+    Receipt r = factory.createReceipt(timeBought);
     reset();
     return r;
   }

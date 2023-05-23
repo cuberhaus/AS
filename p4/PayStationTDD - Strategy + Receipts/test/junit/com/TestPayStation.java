@@ -34,7 +34,7 @@ public class TestPayStation {
   /** Fixture for pay station testing. */
   @Before
   public void setUp() {
-    ps = new PayStationImpl( new One2OneRateStrategy() );
+    ps = new PayStationImpl( new SimpleFactory() );
   }
 
   /** Test acceptance of all legal coins */
