@@ -1,7 +1,9 @@
 package junit.com;
+/** A linear calculation rate strategy.
 
-/** Implementation of Receipt.
-
+  Responsibilities:
+			
+  1) Calculate rates so each 5 cent gives 2 minutes parking
  
    This source code is from the book 
      "Flexible, Reliable Software:
@@ -27,19 +29,9 @@ package junit.com;
    limitations under the License.
 
 */
-
-public class StandardReceipt implements Receipt {
-  private int value;
-  public StandardReceipt(int value) { this.value = value; }
-  public int value() { return value;}
-  public String print() {
-	  String receiptContent = "----------------------------------";
-	  receiptContent = receiptContent + "\n";
-	  receiptContent = receiptContent + "-------- PARKING RECEIPT --------";
-	  receiptContent = receiptContent + "\n";
-	  receiptContent = receiptContent + "         Value " + value + " minutes";
-	  receiptContent = receiptContent + "\n";
-	  receiptContent = receiptContent + "----------------------------------";
-	  return receiptContent; }
-
+public class LinearRateStrategy implements RateStrategy {
+  public int calculateTime( int amount ) {
+    return amount * 2 / 5;
+  }
 }
+
