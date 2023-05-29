@@ -1,9 +1,16 @@
 package junit.com;
 
+import java.util.Date;
+
 public class RevisedStatePayStation implements  StatePayStation{
+    String revisedDate;
+    public RevisedStatePayStation(String now) {
+        revisedDate = now;
+    }
+
     @Override
     public String getStateInfo() {
-        return null;
+        return revisedDate;
     }
 
     @Override

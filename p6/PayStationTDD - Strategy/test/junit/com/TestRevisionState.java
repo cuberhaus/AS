@@ -32,14 +32,14 @@ import static org.junit.Assert.assertEquals;
 
 */
 public class TestRevisionState {
-  RateStrategy rs;
-  RevisionStatePayStation state;
+  RevisionState state;
+
   @Before public void setUp() {
-    rs = new ProgressiveRateStrategy();
+    state = new RevisionState("Jorge");
   }
 
   @Test public void revisedDate() {
-
-    assertEquals( 4 * 60 /*minutes*/ , rs.calculateTime(950) );
+    String opname = state.getStateInfo();
+    assertEquals(opname, "Jorge");
   }
-} 
+}

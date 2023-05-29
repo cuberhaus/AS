@@ -76,4 +76,20 @@ public class TestIntegration {
     ps.addPayment(25); ps.addPayment(25); 
     ps.addPayment(25); ps.addPayment(25); 
   }
+
+  @Test
+  public void IntegrateRevisedState()
+          throws IllegalCoinException {
+    // reconfigure ps to be the progressive rate pay station
+    ps = new PayStationImpl( new One2OneRateStrategy(), new RevisedStatePayStation("2018-11-01"));
+    assertEquals( "2018-11-01", ps.getStateInfo());
+  }
+
+  @Test
+  public void IntegrateRevisionState()
+          throws IllegalCoinException {
+    // reconfigure ps to be the progressive rate pay station
+    ps = new PayStationImpl( new One2OneRateStrategy(), new RevisionState("Jorge"));
+    assertEquals( "Jorge", ps.getStateInfo());
+  }
 }

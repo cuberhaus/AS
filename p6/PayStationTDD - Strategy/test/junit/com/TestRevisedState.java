@@ -3,6 +3,8 @@ package junit.com;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Date;
+
 import static org.junit.Assert.assertEquals;
 
 /** Testcases for the progressive rate strategy.
@@ -32,15 +34,14 @@ import static org.junit.Assert.assertEquals;
 
 */
 public class TestRevisedState {
-  RateStrategy rs;
   RevisedStatePayStation state;
 
   @Before public void setUp() {
-    rs = new ProgressiveRateStrategy();
+    state = new RevisedStatePayStation("2018-11-01");
   }
   
   @Test public void revisedDate() {
-
-    assertEquals( 4 * 60 /*minutes*/ , rs.calculateTime(950) );
+    String date = state.getStateInfo();
+    assertEquals(date, "2018-11-01");
   }
 } 
