@@ -41,13 +41,17 @@ public class PayStationImpl implements PayStation {
 
   /** the strategy for rate calculations */
   private RateStrategy rateStrategy;
-  
-  /** Construct a pay station instance with the given
-      rate calculation strategy.
-      @param rateStrategy the rate calculation strategy to use
-  */
-  public PayStationImpl( RateStrategy rateStrategy ) {
+  private StatePayStation state;
+
+  /**
+   * Construct a pay station instance with the given
+   * rate calculation strategy.
+   *
+   * @param rateStrategy        the rate calculation strategy to use
+   */
+  public PayStationImpl(RateStrategy rateStrategy, StatePayStation StatePayStation) {
     this.rateStrategy = rateStrategy;
+    this.state = StatePayStation;
   }
 
   public void addPayment( int coinValue ) 
@@ -73,6 +77,12 @@ public class PayStationImpl implements PayStation {
   public void cancel() {
     reset();
   }
+
+  @Override
+  public String getStateInfo() {
+    return state.getStateInfo();
+  }
+
   private void reset() {
     timeBought = insertedSoFar = 0;
   }

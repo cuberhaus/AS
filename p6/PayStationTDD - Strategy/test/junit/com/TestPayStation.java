@@ -34,7 +34,13 @@ public class TestPayStation {
   /** Fixture for pay station testing. */
   @Before
   public void setUp() {
-    ps = new PayStationImpl( new One2OneRateStrategy() );
+    ps = new PayStationImpl( new One2OneRateStrategy(), new StubStatePayStation());
+  }
+
+  @Test
+  public void stateInfo() {
+    assertEquals( "Should be in revised state",
+                  "", ps.getStateInfo() );
   }
 
   /** Test acceptance of all legal coins */

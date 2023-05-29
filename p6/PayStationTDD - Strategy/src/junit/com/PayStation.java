@@ -65,5 +65,7 @@ public interface PayStation {
    * transaction.
    */  
   public void cancel();
+
+  String getStateInfo();
 }
 

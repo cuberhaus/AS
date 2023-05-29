@@ -39,7 +39,7 @@ public class TestIntegration {
   public void shouldIntegrateLinearRateCorrectly() 
     throws IllegalCoinException {
     // Configure pay station to be the progressive rate pay station
-    ps = new PayStationImpl( new LinearRateStrategy() );
+    ps = new PayStationImpl( new LinearRateStrategy(), new StubStatePayStation());
     // add $ 2.0: 
     addOneDollar(); addOneDollar();
     
@@ -53,7 +53,7 @@ public class TestIntegration {
   public void shouldIntegrateProgressiveRateCorrectly() 
     throws IllegalCoinException {
     // reconfigure ps to be the progressive rate pay station
-    ps = new PayStationImpl( new ProgressiveRateStrategy() );
+    ps = new PayStationImpl( new ProgressiveRateStrategy(), new StubStatePayStation());
     // add $ 2.0: 1.5 gives 1 hours, next 0.5 gives 15 min
     addOneDollar(); addOneDollar();
     
@@ -65,7 +65,7 @@ public class TestIntegration {
   public void shouldIntegrateProgressiveRateCorrectly2() 
     throws IllegalCoinException {
     // reconfigure ps to be the progressive rate pay station
-    ps = new PayStationImpl( new ProgressiveRateStrategy() );
+    ps = new PayStationImpl( new ProgressiveRateStrategy(), new StubStatePayStation());
     // add $ 2.0: 1.5 gives 1 hours, next 0.5 gives 15 min
     addOneDollar(); addOneDollar();
     ps.addPayment(10);
