@@ -1,4 +1,6 @@
 ._*
 .idea*
 .project
+.classpath
+.settings/
 bin/
