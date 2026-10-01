@@ -1,6 +1,6 @@
 # AS
 
-Frozen FIB-UPC Software Architecture coursework: iterative TDD-driven pay-station system using design patterns (Strategy, Factory, State), based on Christensen's *Flexible, Reliable Software*.
+FIB-UPC Software Architecture coursework: iterative TDD-driven pay-station system using design patterns (Strategy, Factory, State), based on Christensen's *Flexible, Reliable Software*.
 
 ## Architecture
 
@@ -18,6 +18,6 @@ Open each iteration folder in IntelliJ/Eclipse and run the JUnit 4 suites under 
 
 ## Pitfalls
 
-Frozen coursework — do NOT collapse, refactor, or "modernize" iterations; each stage documents the TDD progression and must remain independent. `pXe` folders are extension exercises, not replacements for `pX`.
+Each iteration is an independent project that documents one stage of the TDD progression. `pXe` folders are extension exercises, not replacements for `pX`.
 
 See [README.md](README.md).
